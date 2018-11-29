@@ -2,9 +2,13 @@
 <h2>cart</h2>
 <ul>
   <% @cart.line_items.each do |item| %>
-    <li> <%= item.product.title %> </li>
+    <li> <%= item.quantity %> <%= item.product.title %> </li>
   <% end %>
 </ul>
 
+total price: <%= number_to_currency(@cart.total_price) %>
+<br>
+
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= link_to 'Back', carts_path %> |
+<%= button_to 'delete all', @cart, method: :delete, data: { confirm: 'are you sure?' } %>
