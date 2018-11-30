@@ -1,0 +1,7 @@
+<% if line_item == @current_item %>
+<li class='line-item-highlight'>
+<% else %>
+<li>
+<% end %>
+<%= line_item.quantity %> <%= line_item.product.title %>
+</li>
